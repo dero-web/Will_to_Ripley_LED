@@ -1,0 +1,283 @@
+/* ==========================
+   CSS-Variablen
+   ========================== */
+:root {
+	--primary-color: #e60000; /* Rot für Glows, Buttons, Borders */
+	--bg-color: #000; /* Hintergrundfarbe */
+	--text-color: #e60000; /* Standardtextfarbe */
+	--error-color: #ffff00; /* Fehlertexte gelb */
+	--input-bg: rgba(255, 255, 255, 0.1); /* leicht transparentes Input-Background */
+	--footer-color: #3c3c3c; /* Footer Textfarbe */
+}
+
+/* ==========================
+   Allgemeine Text-Stile
+   ========================== */
+body {
+	font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
+	font-weight: 400; /* Book */
+	background: var(--bg-color);
+	color: var(--text-color);
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 40px 20px;
+}
+
+a {
+	color: var(--primary-color);
+	text-decoration: none;
+	border-bottom: 1px solid var(--primary-color);
+}
+
+/* ==========================
+   Überschriften mit Glow
+   ========================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Benguiat", serif;
+	font-weight: 700; /* Bold */
+	margin: 0 0 15px 0;
+	color: var(--text-color);
+	text-shadow: 0 0 5px #e60000;
+}
+
+h1 {
+	font-size: 4em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+/* ==========================
+   Upside Down Schnee-Effekt
+   ========================== */
+
+.snow {
+	position: fixed;
+	top: -50px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+/* Snowflake base */
+.flake {
+	position: absolute;
+	background: #888888; /* graue Asche */
+	border-radius: 50%;
+	opacity: 0.2;
+	animation-name: fall;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	/* Standard Blur als Fallback */
+	filter: blur(1px);
+}
+
+/* Keyframes für Fall */
+@keyframes fall {
+	0% {
+		transform: translateY(-10%) translateX(0);
+	}
+	100% {
+		transform: translateY(110vh) translateX(20px); /* leichte horizontale Bewegung */
+	}
+}
+
+/* ==========================
+   Header
+   ========================== */
+header {
+	width: 80%;
+	max-width: 600px;
+	padding: 20px 20p 0px 20px;
+	text-align: center;
+}
+
+/* ==========================
+   Main/Form-Stile
+   ========================== */
+main {
+	width: 80%;
+	max-width: 600px;
+	padding: 0px 20px 20px 20px;
+	background: var(--bg-color);
+}
+
+p {
+	font-size: 1.2em;
+	color: #a0a0a0;
+}
+
+strong {
+	color: var(--primary-color);
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	align-items: center;
+}
+
+/* ==========================
+   Input-Feld (Systemschrift für Performance)
+   ========================== */
+input[type="text"] {
+	font-family: system-ui, sans-serif; /* schneller als Benguiat */
+	font-weight: 400;
+	font-size: 1.2em;
+	width: 100%;
+	max-width: 400px;
+	text-transform: uppercase;
+	padding: 12px 15px;
+	background: rgba(0, 0, 0, 0.15);
+	border: 1px solid var(--primary-color);
+	border-radius: 8px;
+	color: var(--text-color);
+	outline: none;
+	box-shadow: 0 0 5px #e60000, 0 0 10px #ff4d4d;
+	transition: box-shadow 0.3s, background 0.3s, border 0.3s;
+}
+
+input[type="text"]:focus {
+	background: rgba(0, 0, 0, 0.25);
+	border-color: #ff1a1a;
+	box-shadow: 0 0 8px #ff1a1a, 0 0 15px #ff6666;
+}
+
+/* ==========================
+   Buttons
+   ========================== */
+button {
+	font-family: "Benguiat", serif;
+	font-weight: 700;
+	font-size: 1.2em;
+	padding: 14px 25px 9px 25px;
+	background: var(--primary-color);
+	color: #000;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: end;
+	gap: 10px;
+	border-radius: 10px;
+	transition: opacity 0.3s, transform 0.2s;
+	line-height: 1.2em;
+}
+
+button:hover {
+	opacity: 0.9;
+	transform: scale(1.05);
+}
+
+/* ==========================
+   Fehlerbox & Spinner
+   ========================== */
+#error-box {
+	color: var(--error-color);
+	margin-top: 15px;
+	min-height: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.spinner {
+	width: 20px;
+	height: 20px;
+	border: 2px solid var(--bg-color);
+	border-top-color: transparent;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+.hidden {
+	display: none;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* ==========================
+   Livestream YouTube Einbettung
+   ========================== */
+
+.yt-wrapper {
+	position: relative;
+	padding: 0;
+	margin: 30px 0 0 0;
+	border: 1px solid var(--primary-color);
+	border-radius: 8px;
+	color: var(--text-color);
+	outline: none;
+	box-shadow: 0 0 5px #e60000, 0 0 10px #ff4d4d;
+	overflow: hidden;
+}
+
+.yt-placeholder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+	background: #000;
+	text-align: center;
+}
+
+.yt-placeholder > p {
+	margin-top: 0;
+}
+
+iframe {
+	width: 100%;
+	height: 336px;
+	border: none;
+	display: block;
+}
+
+/* ==========================
+   Footer
+   ========================== */
+
+footer {
+	width: 80%;
+	max-width: 600px;
+	padding: 10px 20px;
+	text-align: center;
+	font-size: 0.9em;
+	color: var(--footer-color);
+	margin-top: 30px;
+}
+
+footer a {
+	color: var(--footer-color);
+	text-decoration: none;
+	border: none;
+}
+
+/* ==========================
+   Mobile Responsiveness
+   ========================== */
+@media (max-width: 480px) {
+	.form-group {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	button {
+		width: 100%;
+		max-width: 300px;
+		justify-content: center;
+	}
+}

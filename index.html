@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Jack Pop's Stranger-Things-Lichterkette | Botschaften aus dem Upside Down</title>
+		<meta
+			name="description"
+			content="Einmal wie Will Byers Botschaften aus dem Upside Down senden - eine Stranger Things inspirierte Nachrichtenapp"
+		/>
+		<meta
+			name="keywords"
+			content="Stranger Things, Upside Down, Will Byers, Nachrichten, Botschaften, Science Fiction, Horror, Mystery, Jack Pop"
+		/>
+		<meta name="expires" content="Fri, 01 Jan 2027" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+	</head>
+	<body>
+		<header>
+			<h1>Hi Will!</h1>
+			<h2>Hier kannst du Botschaften an meine Stranger-Things-Lichterkette senden!</h2>
+			<p>
+				Tippe eine Botschaft ein, die <strong>maximal 25 Zeichen</strong> lang ist und nur die Buchstaben A-Z
+				enthält. Umlaute, Zahlen und Sonderzeichen sind leider nicht möglich. Klicke dann auf "Senden" und
+				schicke die Botschaft an meine Stranger-Things-Lichterkette.
+			</p>
+		</header>
+		<main>
+			<form id="message-form" aria-label="Nachrichtenformular">
+				<div class="form-group">
+					<label for="message"></label>
+					<input
+						type="text"
+						id="message"
+						name="message"
+						maxlength="25"
+						pattern="[A-Z ]*"
+						required
+						aria-describedby="error-box"
+						placeholder="DEINE NACHRICHT"
+					/>
+					<button type="submit" aria-label="Nachricht senden">
+						Senden
+						<span class="spinner hidden"></span>
+					</button>
+				</div>
+				<div id="error-box" role="alert"></div>
+			</form>
+		</main>
+
+		<div class="snow"></div>
+		<footer>&copy; 2025 | made with 🧇 by <a href="https://www.instagram.com/le_jackpop/">Jack Pop</a></footer>
+		<script src="config.js"></script>
+		<script src="app.js"></script>
+		<script src="snow.js"></script>
+	</body>
+</html>
